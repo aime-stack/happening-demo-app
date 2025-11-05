@@ -31,55 +31,55 @@ const Admin = () => {
 
   return (
     <Layout>
-      <div className="max-w-6xl mx-auto space-y-6">
+      <div className="space-y-6">
         <div className="flex items-center gap-3 mb-6">
-          <div className="bg-gradient-primary rounded-full p-3">
-            <Shield className="h-8 w-8 text-primary-foreground" />
+          <div className="bg-[#1877F2] rounded-full p-3">
+            <Shield className="h-8 w-8 text-white" />
           </div>
-          <h1 className="text-3xl font-bold">Admin Dashboard</h1>
+          <h1 className="text-3xl font-bold text-gray-900">Admin Dashboard</h1>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <Card className="shadow-md">
+          <Card className="bg-white shadow-sm border border-gray-200">
             <CardHeader className="flex flex-row items-center justify-between pb-2">
-              <CardTitle className="text-sm font-medium">Total Users</CardTitle>
-              <Users className="h-5 w-5 text-primary" />
+              <CardTitle className="text-sm font-medium text-gray-900">Total Users</CardTitle>
+              <Users className="h-5 w-5 text-[#1877F2]" />
             </CardHeader>
             <CardContent>
-              <div className="text-3xl font-bold">{stats.users}</div>
-              <p className="text-xs text-muted-foreground mt-1">Community members</p>
+              <div className="text-3xl font-bold text-gray-900">{stats.users}</div>
+              <p className="text-xs text-gray-500 mt-1">Community members</p>
             </CardContent>
           </Card>
 
-          <Card className="shadow-md">
+          <Card className="bg-white shadow-sm border border-gray-200">
             <CardHeader className="flex flex-row items-center justify-between pb-2">
-              <CardTitle className="text-sm font-medium">Total Posts</CardTitle>
-              <FileText className="h-5 w-5 text-primary" />
+              <CardTitle className="text-sm font-medium text-gray-900">Total Posts</CardTitle>
+              <FileText className="h-5 w-5 text-[#1877F2]" />
             </CardHeader>
             <CardContent>
-              <div className="text-3xl font-bold">{stats.posts}</div>
-              <p className="text-xs text-muted-foreground mt-1">Published content</p>
+              <div className="text-3xl font-bold text-gray-900">{stats.posts}</div>
+              <p className="text-xs text-gray-500 mt-1">Published content</p>
             </CardContent>
           </Card>
 
-          <Card className="shadow-md">
+          <Card className="bg-white shadow-sm border border-gray-200">
             <CardHeader className="flex flex-row items-center justify-between pb-2">
-              <CardTitle className="text-sm font-medium">Engagement</CardTitle>
-              <TrendingUp className="h-5 w-5 text-primary" />
+              <CardTitle className="text-sm font-medium text-gray-900">Engagement</CardTitle>
+              <TrendingUp className="h-5 w-5 text-[#1877F2]" />
             </CardHeader>
             <CardContent>
-              <div className="text-3xl font-bold">{stats.comments}</div>
-              <p className="text-xs text-muted-foreground mt-1">Total comments</p>
+              <div className="text-3xl font-bold text-gray-900">{stats.comments}</div>
+              <p className="text-xs text-gray-500 mt-1">Total comments</p>
             </CardContent>
           </Card>
         </div>
 
-        <Card className="shadow-lg">
+        <Card className="bg-white shadow-sm border border-gray-200">
           <CardHeader>
-            <CardTitle>Admin Controls</CardTitle>
+            <CardTitle className="text-gray-900">Admin Controls</CardTitle>
           </CardHeader>
           <CardContent>
-            <p className="text-muted-foreground">
+            <p className="text-gray-500">
               Advanced admin features like user management, content moderation, and analytics
               will be available here.
             </p>

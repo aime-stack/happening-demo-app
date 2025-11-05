@@ -11,6 +11,7 @@ import Dashboard from "./pages/Dashboard";
 import Profile from "./pages/Profile";
 import Messages from "./pages/Messages";
 import Notifications from "./pages/Notifications";
+import Reels from "./pages/Reels";
 import Admin from "./pages/Admin";
 import NotFound from "./pages/NotFound";
 
@@ -65,6 +66,10 @@ const App = () => {
             <Route
               path="/notifications"
               element={session ? <Notifications /> : <Navigate to="/auth" />}
+            />
+            <Route
+              path="/reels"
+              element={session ? <Reels /> : <Navigate to="/auth" />}
             />
             <Route
               path="/admin"

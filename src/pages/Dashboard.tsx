@@ -3,6 +3,8 @@ import { supabase } from "@/integrations/supabase/client";
 import Layout from "@/components/Layout";
 import CreatePost from "@/components/CreatePost";
 import PostCard from "@/components/PostCard";
+import Stories from "@/components/Stories";
+import DemoDataSeeder from "@/components/DemoDataSeeder";
 import { Loader2 } from "lucide-react";
 
 const Dashboard = () => {
@@ -25,21 +27,23 @@ const Dashboard = () => {
 
   return (
     <Layout>
-      <div className="max-w-2xl mx-auto space-y-6">
+      <DemoDataSeeder />
+      <div className="space-y-4">
         <CreatePost onPostCreated={fetchPosts} />
+        <Stories />
 
         {loading ? (
-          <div className="flex justify-center py-12">
-            <Loader2 className="h-8 w-8 animate-spin text-primary" />
+          <div className="flex justify-center py-12 bg-white rounded-lg shadow-sm border border-gray-200">
+            <Loader2 className="h-8 w-8 animate-spin text-[#1877F2]" />
           </div>
         ) : posts.length === 0 ? (
-          <div className="text-center py-12">
-            <p className="text-muted-foreground">
+          <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-12 text-center">
+            <p className="text-gray-500">
               No posts yet. Be the first to share something!
             </p>
           </div>
         ) : (
-          <div className="space-y-4">
+          <div>
             {posts.map((post) => (
               <PostCard key={post.id} post={post} onUpdate={fetchPosts} />
             ))}

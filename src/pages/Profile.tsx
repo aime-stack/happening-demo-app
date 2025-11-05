@@ -53,32 +53,33 @@ const Profile = () => {
 
   return (
     <Layout>
-      <div className="max-w-4xl mx-auto space-y-6">
-        <Card className="shadow-lg">
-          <CardHeader className="text-center">
+      <div className="space-y-6">
+        <Card className="bg-white shadow-sm border border-gray-200 rounded-lg">
+          <CardHeader className="text-center pb-4">
             <div className="flex flex-col items-center gap-4">
-              <Avatar className="h-24 w-24 border-4 border-primary">
+              <Avatar className="h-24 w-24 border-4 border-white shadow-md">
                 <AvatarImage src={profile.avatar_url} />
-                <AvatarFallback className="text-2xl">
+                <AvatarFallback className="text-2xl bg-[#1877F2] text-white">
                   {profile.username?.charAt(0).toUpperCase()}
                 </AvatarFallback>
               </Avatar>
               <div>
-                <h1 className="text-2xl font-bold">{profile.full_name || profile.username}</h1>
-                <p className="text-muted-foreground">@{profile.username}</p>
+                <h1 className="text-2xl font-bold text-gray-900">{profile.full_name || profile.username}</h1>
+                <p className="text-gray-500">@{profile.username}</p>
               </div>
             </div>
           </CardHeader>
-          <CardContent className="text-center">
+          <CardContent className="text-center pb-6">
             {profile.bio && (
-              <p className="text-foreground mb-4">{profile.bio}</p>
+              <p className="text-gray-700 mb-4">{profile.bio}</p>
             )}
-            <div className="flex justify-center gap-4 text-sm">
+            <div className="flex justify-center gap-4 text-sm mb-4">
               <div>
-                <span className="font-bold">{posts.length}</span> Posts
+                <span className="font-bold text-gray-900">{posts.length}</span>{" "}
+                <span className="text-gray-500">Posts</span>
               </div>
             </div>
-            <Button className="mt-4 bg-gradient-primary">
+            <Button className="bg-[#1877F2] hover:bg-[#166FE5] text-white">
               <MessageSquare className="h-4 w-4 mr-2" />
               Send Message
             </Button>
@@ -86,13 +87,17 @@ const Profile = () => {
         </Card>
 
         <div className="space-y-4">
-          <h2 className="text-xl font-bold">Posts</h2>
+          <h2 className="text-xl font-bold text-gray-900">Posts</h2>
           {loading ? (
             <div className="flex justify-center py-12">
-              <Loader2 className="h-8 w-8 animate-spin text-primary" />
+                <Loader2 className="h-8 w-8 animate-spin text-[#1877F2]" />
             </div>
           ) : posts.length === 0 ? (
-            <p className="text-center text-muted-foreground py-8">No posts yet</p>
+            <Card className="bg-white shadow-sm border border-gray-200 rounded-lg">
+              <CardContent className="text-center py-8">
+                <p className="text-gray-500">No posts yet</p>
+              </CardContent>
+            </Card>
           ) : (
             posts.map((post) => (
               <PostCard key={post.id} post={post} onUpdate={fetchUserPosts} />
