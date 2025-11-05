@@ -65,7 +65,7 @@ const Layout = ({ children }: LayoutProps) => {
               <div className="bg-gradient-primary rounded-full p-2">
                 <Users className="h-6 w-6 text-primary-foreground" />
               </div>
-              <h1 className="text-xl font-bold text-foreground">Community Hub</h1>
+              <h1 className="text-xl font-bold text-foreground">Happening Demo</h1>
             </div>
 
             <nav className="hidden md:flex items-center gap-4">
