@@ -134,7 +134,7 @@ const RightWidgets = () => {
   };
 
   return (
-    <aside className="w-[360px] space-y-4">
+    <aside className="w-full lg:w-[360px] space-y-4">
       {/* Featured Events */}
       <div className="bg-white rounded-lg shadow-sm border border-gray-200">
         <div className="p-3 border-b border-gray-200 flex items-center justify-between">

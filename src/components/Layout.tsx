@@ -6,6 +6,7 @@ import Sidebar from "./Sidebar";
 import RightWidgets from "./RightWidgets";
 import TopNavbar from "./TopNavbar";
 import { updateDemoProfileToErnest } from "@/utils/profileUpdater";
+import BottomNav from "./BottomNav";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -45,12 +46,23 @@ const Layout = ({ children, showSidebar = true, showWidgets = true }: LayoutProp
   }
 
   return (
-    <div className="min-h-screen bg-[#F0F2F5]">
+    <div className="min-h-screen bg-[#F0F2F5] pb-14 md:pb-0">
       <TopNavbar />
       <div className="flex max-w-7xl mx-auto">
-        {showSidebar && <Sidebar currentPath={location.pathname} />}
+        {showSidebar && (
+          <div className="hidden lg:block">
+            <Sidebar currentPath={location.pathname} />
+          </div>
+        )}
         <main className="flex-1 flex justify-center pb-4">
-          <div className="w-full max-w-[680px] px-4 pt-4">{children}</div>
+          <div className="w-full max-w-[680px] px-4 pt-4">
+            {children}
+            {showWidgets && (
+              <div className="block lg:hidden pt-4">
+                <RightWidgets />
+              </div>
+            )}
+          </div>
         </main>
         {showWidgets && (
           <div className="hidden lg:block w-[360px] px-4 pt-4">
@@ -58,6 +70,7 @@ const Layout = ({ children, showSidebar = true, showWidgets = true }: LayoutProp
           </div>
         )}
       </div>
+      <BottomNav />
     </div>
   );
 };

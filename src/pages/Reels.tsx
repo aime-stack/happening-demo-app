@@ -80,22 +80,20 @@ const Reels = () => {
     }, 500);
   };
 
-  if (loading) {
-    return (
-      <div className="min-h-screen flex items-center justify-center bg-black">
-        <Loader2 className="h-8 w-8 animate-spin text-white" />
-      </div>
-    );
-  }
-
   return (
-    <div className="fixed inset-0 bg-black z-40">
-      <div className="w-full h-full overflow-y-auto snap-y snap-mandatory scrollbar-hide">
-        {reels.map((reel) => (
-          <ReelCard key={reel.id} reel={reel} />
-        ))}
-      </div>
-    </div>
+    <Layout showSidebar={false} showWidgets={false}>
+      {loading ? (
+        <div className="flex items-center justify-center py-12">
+          <Loader2 className="h-8 w-8 animate-spin text-[#1877F2]" />
+        </div>
+      ) : (
+        <div className="space-y-4">
+          {reels.map((reel) => (
+            <ReelCard key={reel.id} reel={reel} />
+          ))}
+        </div>
+      )}
+    </Layout>
   );
 };
 

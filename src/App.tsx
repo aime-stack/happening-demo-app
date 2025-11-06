@@ -14,6 +14,7 @@ import Notifications from "./pages/Notifications";
 import Reels from "./pages/Reels";
 import Admin from "./pages/Admin";
 import NotFound from "./pages/NotFound";
+import Professional from "./pages/Professional";
 
 const queryClient = new QueryClient();
 
@@ -70,6 +71,10 @@ const App = () => {
             <Route
               path="/reels"
               element={session ? <Reels /> : <Navigate to="/auth" />}
+            />
+            <Route
+              path="/professional"
+              element={session ? <Professional /> : <Navigate to="/auth" />}
             />
             <Route
               path="/admin"

@@ -20,7 +20,8 @@ const Dashboard = () => {
     const { data } = await supabase
       .from("posts")
       .select("*")
-      .order("created_at", { ascending: false });
+      .order("created_at", { ascending: false })
+      .limit(5);
     setPosts(data || []);
     setLoading(false);
   };
